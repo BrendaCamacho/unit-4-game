@@ -70,7 +70,44 @@
   pickRandomCrystals(crystals);
   crystalValues(crystalNumbers);
 
-  
+  $("#button-1").on("click", function() {
+    totalScore += c1;
+    $("#totalNumber").html(totalScore);
+  });
+
+  $("#button-2").on("click", function() {
+    totalScore += c2;
+    $("#totalNumber").html(totalScore);
+  });
+
+  $("#button-3").on("click", function() {
+    totalScore += c3;
+    $("#totalNumber").html(totalScore);
+  });
+
+  $("#button-4").on("click", function() {
+    totalScore += c4;
+    $("#totalNumber").html(totalScore);
+  });
+
+  $("button").on("click", function() {
+    if (totalScore === randNumber){
+      wins++;
+      console.log(totalScore);
+      $("#totalNumber").html(totalScore);
+      $("#wins").html("Wins: " +wins);
+      setTimeout(function() {gameReset("You win! :) ")}, 200);
+    }
+
+    else if(totalScore > randNumber){
+      losses++;
+      $("#totalNumber").html(totalScore);
+      $("#losses").html("Losses: " + losses);
+      setTimeout(function() {gameReset("You lose! :(")}, 200);
+    }
+  })
+
+
 
 
 
